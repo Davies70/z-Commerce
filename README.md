@@ -13,17 +13,27 @@ Z-Commerce is a modern fashion e-commerce website built using React, Redux, Sass
 To get started with Z-Commerce, follow these steps:
 
 - Clone this repository to your local machine.
-- Install the necessary dependencies by running npm install in both the client and server directories.
-- Start the development server by running npm start in the client directory and npm run develop in the server directory.
-- Open http://localhost:3000 in your browser to view the website.
-- Note: You will need to create a .env file in the server directory with the following environment variables:
+- Install the necessary dependencies by running npm install in the client directory.
+- Create a .env file in the client directory with the following environment variable:
+
+```bash
+REACT_APP_API_URL=http://localhost:1337
+```
+
+- Start the development server by running npm start in the client directory.
+- Install the necessary dependencies by running npm install in the api directory.
+- Create a .env file in the api directory with the following environment variable:
 
 ```bash
 DATABASE_URI=<your database URI>
 JWT_SECRET=<your JWT secret>
 STRIPE_SECRET_KEY=<your Stripe secret key>
-
 ```
+
+- Start the Strapi server by running npm run develop in the api directory.
+- Open http://localhost:3000 in your browser to view the website.
+
+Note: You will need to have Node.js and MongoDB installed on your local machine.
 
 ## Features
 
