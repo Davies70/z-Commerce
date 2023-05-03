@@ -36,7 +36,7 @@ const NavBar = () => {
           </div>
           <div className="item">
             <Link className="link" to="/products/3">
-              Children
+              Accessories
             </Link>
           </div>
         </div>

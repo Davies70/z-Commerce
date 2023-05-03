@@ -25,24 +25,26 @@ const Products = () => {
     );
   };
 
-  console.log(selectedSubCats);
-
   return (
     <div className="products">
       <div className="left">
         <div className="filterItem">
           <h2>Product Categories</h2>
-          {data?.map((item) => (
-            <div className="inputItem" key={item.id}>
-              <input
-                type="checkbox"
-                id={item.id}
-                value={item.id}
-                onChange={handleChange}
-              />
-              <label htmlFor={item.id}>{item.attributes.title}</label>
-            </div>
-          ))}
+          {error
+            ? 'Something went wrong'
+            : loading
+            ? 'loading...'
+            : data?.map((item) => (
+                <div className="inputItem" key={item.id}>
+                  <input
+                    type="checkbox"
+                    id={item.id}
+                    value={item.id}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor={item.id}>{item.attributes.title}</label>
+                </div>
+              ))}
         </div>
         <div className="filterItem">
           <h2>Filter by price</h2>
@@ -84,7 +86,7 @@ const Products = () => {
       <div className="right">
         <img
           className="catImg"
-          src="https://images.pexels.com/photos/3735641/pexels-photo-3735641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src="/images/products.png"
           alt=""
         />
         <List

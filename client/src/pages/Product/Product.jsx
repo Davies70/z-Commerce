@@ -16,7 +16,9 @@ const Product = () => {
   const dispatch = useDispatch();
   return (
     <div className="product">
-      {loading ? (
+      {error ? (
+        'Something went wrong'
+      ) : loading ? (
         'loading...'
       ) : (
         <>
@@ -53,7 +55,7 @@ const Product = () => {
             <h1>{data?.attributes?.title}</h1>
             <span className="price">${data?.attributes?.price}</span>
             <p>{data?.attributes?.desc}</p>
-            <div className='quantity'>
+            <div className="quantity">
               <button
                 onClick={(e) =>
                   setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
@@ -62,7 +64,9 @@ const Product = () => {
                 -
               </button>
               {quantity}
-              <button onClick={(e) => setQuantity((next) => next + 1)}>+</button>
+              <button onClick={(e) => setQuantity((next) => next + 1)}>
+                +
+              </button>
             </div>
             <button
               className="add"

@@ -11,7 +11,9 @@ const List = ({ maxPrice, sort, subCats, catId }) => {
   );
   return (
     <div className="list">
-      {loading
+      {error
+        ? 'Something went wrong'
+        : loading
         ? 'loading...'
         : data?.map((item) => <Card item={item} key={item.id} />)}
     </div>

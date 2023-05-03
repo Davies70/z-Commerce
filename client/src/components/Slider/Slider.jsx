@@ -15,9 +15,9 @@ const Slider = () => {
   };
 
   const data = [
-    'https://images.pexels.com/photos/965324/pexels-photo-965324.jpeg',
-    'https://images.pexels.com/photos/9717986/pexels-photo-9717986.jpeg',
     'https://images.pexels.com/photos/9637586/pexels-photo-9637586.jpeg',
+    '/images/Black.png',
+    'https://images.pexels.com/photos/9717986/pexels-photo-9717986.jpeg',
   ];
   return (
     <div className="slider">
