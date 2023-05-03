@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './Products.scss';
 import List from '../../components/List/List';
 import useFetch from '../../hooks/useFetch';
+import './Products.scss';
 
 const Products = () => {
   const catId = parseInt(useParams().id);
@@ -33,7 +34,7 @@ const Products = () => {
           {error
             ? 'Something went wrong'
             : loading
-            ? 'loading...'
+            ? 'loading'
             : data?.map((item) => (
                 <div className="inputItem" key={item.id}>
                   <input
@@ -64,9 +65,9 @@ const Products = () => {
           <div className="inputItem">
             <input
               type="radio"
-              name="price"
-              value="asc"
               id="asc"
+              value="asc"
+              name="price"
               onChange={(e) => setSort('asc')}
             />
             <label htmlFor="asc">Price (Lowest first)</label>
@@ -74,9 +75,9 @@ const Products = () => {
           <div className="inputItem">
             <input
               type="radio"
-              name="price"
-              value="desc"
               id="desc"
+              value="desc"
+              name="price"
               onChange={(e) => setSort('desc')}
             />
             <label htmlFor="desc">Price (Highest first)</label>
@@ -99,4 +100,5 @@ const Products = () => {
     </div>
   );
 };
+
 export default Products;

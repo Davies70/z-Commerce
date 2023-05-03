@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import './Product.scss';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -10,16 +11,18 @@ import { addToCart } from '../../redux/cartReducer';
 
 const Product = () => {
   const id = useParams().id;
-  const [selectedImg, setSelectedimg] = useState('img');
+  const [selectedImg, setSelectedImg] = useState('img');
   const [quantity, setQuantity] = useState(1);
-  const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
+
   const dispatch = useDispatch();
+  const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
+
   return (
     <div className="product">
       {error ? (
         'Something went wrong'
       ) : loading ? (
-        'loading...'
+        'loading'
       ) : (
         <>
           <div className="left">
@@ -30,7 +33,7 @@ const Product = () => {
                   data?.attributes?.img?.data?.attributes?.url
                 }
                 alt=""
-                onClick={(e) => setSelectedimg('img')}
+                onClick={(e) => setSelectedImg('img')}
               />
               <img
                 src={
@@ -38,7 +41,7 @@ const Product = () => {
                   data?.attributes?.img2?.data?.attributes?.url
                 }
                 alt=""
-                onClick={(e) => setSelectedimg('img2')}
+                onClick={(e) => setSelectedImg('img2')}
               />
             </div>
             <div className="mainImg">
@@ -57,16 +60,14 @@ const Product = () => {
             <p>{data?.attributes?.desc}</p>
             <div className="quantity">
               <button
-                onClick={(e) =>
+                onClick={() =>
                   setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
                 }
               >
                 -
               </button>
               {quantity}
-              <button onClick={(e) => setQuantity((next) => next + 1)}>
-                +
-              </button>
+              <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
             </div>
             <button
               className="add"
@@ -76,11 +77,9 @@ const Product = () => {
                     id: data.id,
                     title: data.attributes.title,
                     desc: data.attributes.desc,
+                    price: data.attributes.price,
+                    img: data.attributes.img.data.attributes.url,
                     quantity,
-                    img:
-                      process.env.REACT_APP_UPLOAD_URL +
-                      data.attributes.img.data.attributes.url,
-                    price: data?.attributes?.price,
                   })
                 )
               }
@@ -89,15 +88,16 @@ const Product = () => {
             </button>
             <div className="links">
               <div className="item">
-                <FavoriteBorderIcon />
+                <FavoriteBorderIcon /> ADD TO WISH LIST
               </div>
               <div className="item">
                 <BalanceIcon /> ADD TO COMPARE
               </div>
             </div>
             <div className="info">
-              <span>Vendor: Chanel</span>
-              <span>Product Type: Chino pants, Women</span>
+              <span>Vendor: Polo</span>
+              <span>Product Type: T-Shirt</span>
+              <span>Tag: T-Shirt, Women, Top</span>
             </div>
             <hr />
             <div className="info">
