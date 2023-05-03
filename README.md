@@ -48,16 +48,6 @@ Z-Commerce is built using the following technologies:
 
 Davies Ajayi
 
-## Contributing
-
-We welcome contributions to Z-Commerce! To contribute, please follow these steps:
-
-- Fork this repository to your own GitHub account.
-- Create a new branch with your changes: git checkout -b my-feature-branch.
-- Commit your changes and push to the branch: git commit -am "Add new feature" && git push origin my-feature-branch.
-- Submit a pull request to this repository with a detailed description of your changes.
-
-
 ## Version History
 
 - 0.10
