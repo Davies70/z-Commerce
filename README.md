@@ -6,7 +6,7 @@ Z-Commerce is a modern fashion e-commerce website built using React, Redux, Sass
 
 ![image](./icons/slider.PNG)
 ![image](./icons/purchase.PNG)
-![image](./icons/sort.PNG)
+![image](./icons/sort.png)
 
 ## Getting Started
 
