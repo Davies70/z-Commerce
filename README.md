@@ -33,7 +33,7 @@ STRIPE_SECRET_KEY=<your Stripe secret key>
 - Start the Strapi server by running npm run develop in the api directory.
 - Open http://localhost:3000 in your browser to view the website.
 
-Note: You will need to have Node.js and MongoDB installed on your local machine.
+Note: You will need to have Node.js and MySQL installed on your local machine.
 
 ## Features
 
